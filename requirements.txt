@@ -1,0 +1,4 @@
+sanic # Ta race
+python-dotenv
+pdfkit
+wkhtmltopdf
