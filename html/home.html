@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../styles/home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
 </head>
 <body>
 
-    <h1>{{ text }}</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <header>
+        <div class="brand">
+            <img src="../img/CM_Logo_T.png" alt="Computer Manager Logo" width="40" height="40">
+            <a href="home.html"><h2 class="title">Computer Manager</h2></a>
+        </div>
+        <div class="navigation-div">
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="" class="nav-btn">Machines</a>
+                        <span class="under"></span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="" class="nav-btn">Projets</a>
+                        <span class="under"></span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="" class="nav-btn">Infos</a>
+                        <span class="under"></span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="" class="nav-btn">Connexion</a>
+                        <span class="under"></span>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+        <article class="left">
+            <p class="computer globbed">Computer</p>
+            <h3>Notre stock de machines</h3>
+            <p class="manager globbed">Manager</p>
+            <h3>Géré par note logiciel</h3>
+        </article>
+        <article class="right">
+            <div class="cube">
+                <div class="top">
+                    <a href="https://maths-code.fr/cours/recycler-un-pc-sous-gnu-linux/" target="_blank">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                </div>
+                <div class="box">
+                    <span style="--i: 0;"></span>
+                    <span style="--i: 1;"></span>
+                    <span style="--i: 2;"></span>
+                    <span style="--i: 3;"></span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <article class="foot">
+            <p>&copy; Club Info - 2024-2025 - <a href="https://www.lyceecarnot.fr/">Lycée carnot</a></p>
+        </article>
+    </footer>
+    
+    <div class="rects">
+        <span class="blue-rect"></span>
+        <span class="blue-rect inner"></span>
+        <span class="darkblue-rect inner"></span>
+        <span class="darkblue-rect"></span>
+    </div>
     
 </body>
 </html>
