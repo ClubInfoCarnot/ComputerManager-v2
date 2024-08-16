@@ -9,7 +9,6 @@ class RoutesIndex():
         data: dict = \
             {
                 "title": "Accueil",
-                "text": "Ceci est un texte variable"
             }
         content = template.render(data)
         
