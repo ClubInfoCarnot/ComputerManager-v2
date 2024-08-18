@@ -1,76 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html {
+    font-family: 'Roboto';
     width: 100%;
     height: 100%;
 }
 
 body {
+    min-width: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 99%;
+    align-content: center;
 }
 
-.login-h1 {
-    font-weight: bold;
-    align-self: center;
+.login-form {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 450px;
+    height: 500px;
+    background: #fefefe;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 0 1px 1px #efefef;
 }
 
-.login-section {
-    width: 20%;
-    height: 50%;
-    border-radius: 10px;
-    background: #ffffff;
-    box-shadow:  -16px 16px 30px #b8b8b8,
-                16px -16px 30px #ffffff;
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
-.login-section > form {
-    width: 80%;
+.login-form::after, .login-form::before {
+    content: '';
+    position: absolute;
+    display: flex;
+    width: calc(100% + 10px);
+    height: 610px;
+    border-radius: 30px;
+    z-index: -1;
+    background-image: conic-gradient(from var(--angle), transparent 90%, #00e1ff 10%, transparent 90%, #00e1ff 10%);
+    animation: 4s spin linear infinite;
 }
 
-.login-section, .login-section > form, .login-username-div, .login-password-div {
+.login-form::before {
+    filter: blur(50px)
+    opacity(.5)
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.login-form div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: right;
-}
-
-form {
-    align-self: center;
-    color: #000;
-}
-
-.login-username-div, .login-password-div {
-    margin: 30px;
-}
-
-.login-submit {
-    width: 150px;
-    margin: 25px;
-    padding: 10px;
-    align-self: center;
+    width: 50%;
 }
 
 label {
-    font-size: small;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    margin: 5px;
 }
 
-input[type=password], input[type=text], textarea {
-    padding: 7px;
-    border-color: #000;
-    border-width: 0 0 2px 0;
-    border-radius: 1px;
-    background-color: transparent;
-}
-
-input:focus, input:active {
-    outline: none;
-}
-
-.login-submit {
-    border-radius: 4px;
-    background: #ffffff;
-    box-shadow: inset -5px 5px 12px #e0e0e0,
-                inset 5px -5px 12px #ffffff;
+input[type="text"], input[type="password"] {
+    width: 100%;
     border: none;
+    border-bottom: 1px solid #00e1ff;
+    background: transparent;
+    padding: 5px;
+    border-radius: 2px;
+    transition-duration: .5s;
+}
+
+input[type="text"]:focus-within, input[type="password"]:focus {
+    outline: none;
+    border-bottom: 4px solid #00e1ff;
+    padding: 20px;
+    font-size: large;
+}
+
+input[type="submit"] {
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    outline: none;
+    background: none;
+    box-shadow: 0 0 1px 1px #efefef;
+    transition-duration: .4s;
+}
+
+input[type="submit"]:hover {
+    background: #00e1ff;
+}
+
+@media (max-width: 650px) {
+    .login-form {
+        width: 225px;
+        height: 250px;
+    }
+
+    .login-form label {
+        font-size: 1rem;
+    }
+
+    .login-form::after, .login-form::before {
+        content: '';
+        position: absolute;
+        display: flex;
+        width: 300;
+        height: 360px;
+        border-radius: 30px;
+        z-index: -1;
+        background-image: conic-gradient(from var(--angle), transparent 90%, #00e1ff 10%, transparent 90%, #00e1ff 10%);
+        animation: 4s spin linear infinite;
+    }
+
+    input[type="text"]:focus-within, input[type="password"]:focus {
+        border-bottom: 4px solid #00e1ff;
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+    }
 }
