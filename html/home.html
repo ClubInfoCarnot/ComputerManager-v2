@@ -13,7 +13,7 @@
     <header>
         <div class="brand">
             <img src="../img/CM_Logo_T.png" alt="Computer Manager Logo" width="40" height="40">
-            <a href="home.html"><h2 class="title">Computer Manager</h2></a>
+            <a href="/"><h2 class="title">Computer Manager</h2></a>
         </div>
         <div class="navigation-div">
             <nav class="nav">
@@ -43,12 +43,42 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="" class="nav-btn">Connexion</a>
+                        <a href="/login" id="login-btn" class="nav-btn">Connexion</a>
                         <span class="under"></span>
                     </li>
                 </ul>
             </nav>
+            <script>
+                function getCookie(name) {
+                    let cookieArr = document.cookie.split(";");
+                
+                    for(let i = 0; i < cookieArr.length; i++) {
+                        let cookiePair = cookieArr[i].split("=");
+                        if(name == cookiePair[0].trim()) {
+                            return decodeURIComponent(cookiePair[1]);
+                        }
+                    }
+                    return null;
+                }
+                let cookieValue = getCookie("connected");
 
+                if (cookieValue == "true") {
+                    button = document.getElementById("login-btn");
+                    button.href = '/'
+                    button.textContent = "Déconnexion"
+
+                    button.addEventListener('click', function(e) {
+                        let currentDate = new Date();
+                        currentDate.setTime(currentDate.getTime() + (1 * 60 * 60 * 1000));
+                        let expirationDate = currentDate.toUTCString();
+                        document.cookie = "connected=true; expires=" + expirationDate + "; path=/";
+                        
+                        window.location.href = '/'
+                        console.log(true)
+                    });
+                    console.log(false)
+                }
+            </script>
         </div>
     </header>
 

@@ -1,7 +1,9 @@
 import sanic
 import sanic.response
 import dotenv
+from constants import ENV
 from pages.index import RoutesIndex
+from pages.login import RoutesLogin
 #from sanic_dispatcher import SanicDispatcherMiddlewareController
 
 dotenv.load_dotenv(".env")
@@ -12,6 +14,16 @@ app = sanic.Sanic(name="ComputerManager-v2")
 async def index(request) -> sanic.HTTPResponse:
     index = RoutesIndex()
     return sanic.response.html(index.render())
+
+@app.route('/login')
+async def login(request) -> sanic.HTTPResponse:
+    login = RoutesLogin()
+    return sanic.response.html(login.render())
+
+@app.route('/conn_trans')
+async def conn_trans(request) -> sanic.HTTPResponse:
+    login = RoutesLogin()
+    return sanic.response.html(ENV.get_template("conn_trans.html").render())
 
 # Base route for CSS files delivery
 @app.route(name='/styles/<filename>', uri='/styles/<filename>')
